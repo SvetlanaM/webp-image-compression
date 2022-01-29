@@ -12,7 +12,7 @@ for file in files:
     try:
         if ext.lower() in allowed_extensions:
             temp = os.path.splitext(file)[0]
-            bashCommand = "cwebp -q 100 " +  full_path + " -o " + temp + ".webp"
+            bashCommand = "cwebp -q 100 " +  full_path + " -o " + path + temp + ".webp"
             process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
             output, error = process.communicate()
     except FileNotFoundError:
