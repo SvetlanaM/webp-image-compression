@@ -22,6 +22,6 @@ WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images
 5. Enter desired compression quality in number format from 1 to 100. Default value is 80 otherwise.
 
 ### Error messages
-1. ValueError - compression quality not is not a number. 
-2. FileNotFoundError - bad path to the image folder or value was not provided.
+1. #ValueError# - compression quality were provided in not numeric value. 
+2. #FileNotFoundError# - bad path to the image folder or value was not provided.
 
