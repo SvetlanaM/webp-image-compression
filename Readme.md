@@ -22,12 +22,6 @@ WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images
 5. Enter desired compression quality in number format from 1 to 100. Default value is 80 otherwise.
 
 ### Error messages
-1. The server could not fulfill the request. 
-2. We failed reach the server.
-3. Data in older format.
-4. No instagram account found.
+1. ValueError - compression quality not is not a number. 
+2. FileNotFoundError - bad path to the image folder or value was not provided.
 
-## ToDo
-1. Support for code in older format 
-2. Exception for private accounts
-3. Download comments from post detail
