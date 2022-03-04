@@ -18,10 +18,10 @@ WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images
    <code>pip3 install -r requirements.txt</code>
 3. Run code:
    <code>python compress.py</code>
-4. Enter full path to the folder with your images. You can use `pwd` for more information - (example: /Users/svetlanamargetova/Desktop/web-app/images/).
-5. Enter desired compression quality in number format from 1 to 100. Default value is 80 otherwise.
+4. Enter full path to the folder with your images. You can use `pwd` for more information - (example: <span style="color:gray">/Users/svetlanamargetova/Desktop/web-app/images/<span>).
+5. Enter desired compression quality in number format from 1 to 100. Default value is **80** otherwise.
 
 ### Error messages
-1. #ValueError# - compression quality were provided in not numeric value. 
-2. #FileNotFoundError# - bad path to the image folder or value was not provided.
+1. **ValueError** - compression quality were provided in not numeric value. 
+2. **FileNotFoundError** - bad path to the image folder or value was not provided.
 
