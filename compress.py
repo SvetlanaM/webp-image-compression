@@ -6,7 +6,7 @@ def convert_image() -> None:
     path = input("Enter full path to your folder with images: ")
 
     # allowed extensions for conversion
-    allowed_extensions = ['.png', '.jpg', '.jpeg', '.gif']
+    allowed_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.heic']
 
     try:
         quality = int(
@@ -19,9 +19,6 @@ def convert_image() -> None:
     if quality not in range(1, 101):
         raise Exception("Sorry, allowed numbers only between 1 - 100")
 
-    # if this attribute is empty, use the same path
-    destination_path = input("Destination path: ") or path
-
     try:
         files = os.listdir(path)
     except FileNotFoundError:
@@ -32,28 +29,33 @@ def convert_image() -> None:
     if path[-1] != '/':
         path = path + '/'
 
-    for file in files:
+    # if this attribute is empty, use the same path
+    destination_path = dest if (dest := input(
+        "Destination path: ") != '') else path
+
+    # filter only images and nothing more
+    filtered_files = filter(lambda file: os.path.splitext(file)[
+                            1].lower() in allowed_extensions, files)
+
+    for file in filtered_files:
         divide_file = os.path.splitext(file)
-        ext, prefix = divide_file[1], divide_file[0]
+        file_name = divide_file[0]
         full_path = path + file
-        if ext.lower() in allowed_extensions:
-            temp = prefix
-            try:
-                bashCommand = "cwebp -q " + \
-                    str(quality) + " " + full_path + " -o " + \
-                    destination_path + temp + ".webp"
-                process = subprocess.Popen(
-                    bashCommand.split(), stdout=subprocess.PIPE)
-                _, error = process.communicate()
-                if error:
-                    print("Conversion failed")
-            except FileNotFoundError:
-                print("Wrong file")
-            except SyntaxError:
-                print("Invalid file")
+        try:
+            bashCommand = "cwebp -q " + \
+                str(quality) + " " + full_path + " -o " + \
+                destination_path + file_name + ".webp"
+            process = subprocess.Popen(
+                bashCommand.split(), stdout=subprocess.PIPE)
+            _, error = process.communicate()
+            if error:
+                print("Conversion failed")
+        except FileNotFoundError:
+            print("Wrong file")
+        except SyntaxError:
+            print("Invalid file")
 
     print("---- Conversion DONE ----")
-    exit(1)
 
 
 convert_image()
