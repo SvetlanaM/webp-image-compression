@@ -8,10 +8,9 @@ def convert_image() -> None:
     # allowed extensions for conversion
     allowed_extensions = ['.png', '.jpg', '.jpeg', '.gif']
 
-    # if empty, use 80
     try:
         quality = int(
-            input("Enter compression quality in numbers from 1 to 100: ")) or 80
+            input("Enter compression quality in numbers from 1 to 100: "))
     except ValueError:
         print("This is not a numeric value")
         exit(1)
