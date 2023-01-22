@@ -11,3 +11,13 @@ For S3 you need define also content type and correct rights
 ```python
   ExtraArgs={'ACL': 'public-read', 'ContentType': 'image/webp'})
 ```
+
+and at least these envs
+
+```
+API_ACCESS_ID = config('ACCESS_ID')
+API_SECRET_KEY = config('SECRET_KEY')
+AWS_ENDPOINT = config('AWS_ENDPOINT')
+AWS_CDN = config('AWS_CDN')
+FULL_URL = config('FULL_URL')
+```
