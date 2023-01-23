@@ -16,7 +16,7 @@ Amazon S3 is part of my custom ugly quick one hour code, but If you really want 
 define also content type and correct rights
 
 ```python
-  ExtraArgs={'ACL': 'public-read', 'ContentType': 'image/webp'})
+  ExtraArgs={'ACL': 'public-read', 'ContentType': 'image/webp'}
 ```
 
 and at least these envs
