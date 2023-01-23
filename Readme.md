@@ -11,9 +11,9 @@ Use only ```compress.py``` script.
 <hr>
 
 ## S3 upload ## 
-Amazon S3 is part of my custom ugly quick one hour code, but If you really want to implement upload to S3 butckets, you:
+Amazon S3 is part of my custom ugly quick one hour code, but If you really want to implement upload to S3 butckets, you need:
 
-need define also content type and correct rights
+define also content type and correct rights
 
 ```python
   ExtraArgs={'ACL': 'public-read', 'ContentType': 'image/webp'})
