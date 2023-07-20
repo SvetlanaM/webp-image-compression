@@ -30,8 +30,7 @@ def convert_image() -> None:
         path = path + '/'
 
     # if this attribute is empty, use the same path
-    destination_path = dest if (dest := input(
-        "Destination path: ") != '') else path
+    destination_path = input("Destination path: ")
 
     # filter only images and nothing more
     filtered_files = filter(lambda file: os.path.splitext(file)[
